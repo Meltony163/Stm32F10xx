@@ -64,6 +64,7 @@ typedef struct {
 
 #define HSEON			16u
 #define HSERDY			17u
+#define HSEBYP			18u
 
 #define HSION			0u
 #define HSIRDY			1u
@@ -73,6 +74,7 @@ typedef struct {
 
 #define LSEON			0u
 #define LSERDY			1u
+#define LSEBYP			2u
 
 #define LSION			0u
 #define LSIRDY			1u

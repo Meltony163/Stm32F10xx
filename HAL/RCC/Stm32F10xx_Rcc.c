@@ -114,6 +114,7 @@ void RCC_vEnableHSE()
 {
 	SET_BIT(RCC->CR, HSEON);
 	while (GET_BIT(RCC->CR, HSERDY) == 0);
+	SET_BIT(RCC->CR,HSEBYP);
 }
 
 /**
@@ -152,6 +153,7 @@ void RCC_vEnableLSE()
 {
 	SET_BIT(RCC->BDCR, LSEON);
 	while (GET_BIT(RCC->BDCR, LSERDY) == 0);
+	SET_BIT(RCC->BDCR,LSEBYP);
 }
 
 /**
