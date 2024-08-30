@@ -257,7 +257,7 @@ uint8 RCC_u8SetAHBPrescaler(AHB_Prescaler Copy_enPrescaler)
  *
  * This function determines which register (APB1, APB2, or AHB) to write to based on the peripheral.
  */
-void RCC_vEnablePeriphralClock(PeripheralEnable Copy_enPeriphral)
+void RCC_vEnablePeripheralClock(PeripheralEnable Copy_enPeriphral)
 {
 	if ((Copy_enPeriphral & (1 << IsAPB1)) != 0)
 	{
@@ -272,5 +272,23 @@ void RCC_vEnablePeriphralClock(PeripheralEnable Copy_enPeriphral)
 	else
 	{
 		RCC->AHBENR |= Copy_enPeriphral;
+	}
+}
+
+void RCC_vDisablePeripheralClock(PeripheralEnable Copy_enPeriphral)
+{
+	if ((Copy_enPeriphral & (1 << IsAPB1)) != 0)
+	{
+		CLR_BIT(Copy_enPeriphral, IsAPB1);
+		RCC->APB1ENR &= (~Copy_enPeriphral);
+	}
+	else if ((Copy_enPeriphral & (1 << IsAPB2)) != 0)
+	{
+		CLR_BIT(Copy_enPeriphral, IsAPB2);
+		RCC->APB2ENR &= (~Copy_enPeriphral);
+	}
+	else
+	{
+		RCC->AHBENR &= (~Copy_enPeriphral);
 	}
 }

@@ -206,7 +206,8 @@ uint8 RCC_u8SelcetSystemClock(Clock Copy_enSystemClock);
 uint8 RCC_u8SetAPB1Prescaler(APB_Prescaler Copy_enPrescaler);
 uint8 RCC_u8SetAPB2Prescaler(APB_Prescaler Copy_enPrescaler);
 uint8 RCC_u8SetAHBPrescaler(AHB_Prescaler Copy_enPrescaler);
-void RCC_vEnablePeriphralClock(PeripheralEnable Copy_enPeriphral);
+void RCC_vEnablePeripheralClock(PeripheralEnable Copy_enPeriphral);
+void RCC_vDisablePeripheralClock(PeripheralEnable Copy_enPeriphral);
 
 /**************************************RCC Function Declaration End**************************************/
 
